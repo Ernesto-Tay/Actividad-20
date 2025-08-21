@@ -13,6 +13,11 @@ class Empleado:
     def getPuesto(self):
         return self.__puesto
 
+    def getSalario(self):
+        return self._salario
+    def updateSalario(self,salario):
+        self._salario = salario
+
 
 # ID y Nombre son privados para evitar cambios, pero la lista "empleados" es restringida para permitir cambios controlados
 class Departamento:
@@ -25,6 +30,11 @@ class Departamento:
         return self.__ID
     def getNombre(self):
         return self.__nombre
+    def getEmpleados(self):
+        return self._empleados
+
+    def updateEmpleados(self,empleados_list):
+        self._empleados = empleados_list
 
 
 # Lo mismo que en la clase "Departamento"
@@ -38,3 +48,8 @@ class Empresa:
         return self.__ID
     def getNombre(self):
         return self.__nombre
+
+    def getDeptos(self):
+        return self._deptos
+    def updateDeptos(self,deptos_list):
+        self._deptos = deptos_list
