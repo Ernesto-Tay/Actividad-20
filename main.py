@@ -23,7 +23,7 @@ class Departamento:
             print("\n"+"-"*10 + " LISTA DE EMPLEADOS " + "-"*10)
             print("ID".ljust(20) + "NOMBRE".ljust(35) + "PUESTO".ljust(20) + "SALARIO".ljust(20))
             for empleado in self.lista_empleados:
-                print(empleado.ID.ljust(20) + empleado.nombre.ljust(35) + empleado.puesto.ljust(20) + empleado.salario.ljust(20))
+                print(empleado.ID.ljust(20) + empleado.nombre.ljust(35) + empleado.puesto.ljust(20) + f"Q{empleado.salario}".ljust(20))
 
     def eliminar_empleado(self, id):
         deletion = False
@@ -41,4 +41,18 @@ class Empresa:
         self.nombre = nombre
         self.num_registro = num_registro
         self.lista_deptos = []
+
+    def agregar_depto(self, depto):
+        self.lista_deptos.append(depto)
+        print("Empleado agregado exitosamente")
+
+    def mostrar_deptos(self):
+        if not self.lista_deptos:
+            print("No hay empleados en este departamento")
+        else:
+            print("\n"+"-"*10 + " LISTA DE DEPTOS " + "-"*10)
+            print("ID".ljust(20) + "NOMBRE".ljust(35) + "EMPLEADOS".ljust(20))
+            for depto in self.lista_deptos:
+                print(depto.ID.ljust(20) + depto.nombre.ljust(20) + str(len(depto.lista_empleados)).ljust(20))
+
 
